@@ -1,0 +1,177 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url('background.jpg');
+    overflow: hidden;
+}
+
+.card {
+    display: grid;
+    grid-template-columns: 300px;
+    grid-template-rows: 210px 220px 80px;
+    grid-template-areas: "image" "text" "stats";
+
+    font-family: roboto;
+    border-radius: 18px;
+    background: #1d1d1d;
+    color: white;
+    box-shadow: 5px 5px 15px black;
+    text-align: justify;
+    margin: 2rem;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+
+.rgb::after {
+    content:"";
+    background: linear-gradient(45deg,
+    #ff0000 0%, 
+    #ff9a00 10%,
+    #d0de21 20%,
+    #4fdc4a 30%, 
+    #3fdad8 40%,
+    #2fc9e2 50%, 
+    #1c7fee 60%, 
+    #5f15f2 70%, 
+    #ba0cf8 80%, 
+    #fb07d9 90%, 
+    #ff0000 100%  )
+    repeat 0% 0% / 300% 100%;
+    position: absolute;
+    inset: -3px;
+    border-radius: 16px;
+    filter: blur(8px);
+    transform: translateZ(-1px); /*or z-index */
+    animation: rgb 4s linear infinite;
+  }
+
+@keyframes rgb {
+    0% {background-position: 0% 50%}
+    50% {background-position: 100% 50%}
+    100% {background-position: 0% 50%}
+}
+
+.card-image {
+    grid-area: image;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-size: cover;
+}
+
+.card-image.one {
+    background: linear-gradient(#fff0 0%, #fff0 70%, #1d1d1d 100%), url("img1.png");
+}
+
+.card-image.two {
+    background: linear-gradient(#fff0 0%, #fff0 70%, #1d1d1d 100%), url("img2.png");
+}
+
+.card-image.three {
+    background: linear-gradient(#fff0 0%, #fff0 70%, #1d1d1d 100%), url("img3.png");
+}
+
+.card-image.four {
+    background: linear-gradient(#fff0 0%, #fff0 70%, #1d1d1d 100%), url("img4.png");
+}
+
+.card-text {
+    grid-area: text;
+    margin: 25px;
+    transform: translateZ(30px);
+}
+
+.card-text span {
+   font-size: 15px;
+}
+
+.card-text span.red {
+    color: rgb(255, 7, 110);
+ }
+
+ .card-text span.green{
+    color: green;
+ }
+
+ .card-text span.purple{
+    color: purple;
+ }
+
+ .card-text span.blue{
+    color: blue;
+ }
+
+.card-text p {
+    color: gray;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.card-text h2 {
+    margin-top: 0px;
+    font-size: 28px;
+}
+
+
+.card-stats {
+    grid-area: stats;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.card-stats.red {
+    background: red;
+}
+
+.card-stats.green {
+    background: green;
+}
+
+.card-stats.purple {
+    background: purple;
+}
+
+.card-stats .stat{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+    color: white;
+}
+
+.card-stats .type {
+    font-size: 11px;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+.card-stats .value {
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.card-stats .border {
+    border-left: 1px solid rgb(172, 26, 87);
+    border-right: 1px solid rgb(172, 26, 87);
+}
+
+.card-stats .value sub {
+    font-size: 12px;
+}
+
+.card:hover {
+    transform: scale(1.2);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 6);
+}
+
+.js-tilt-glare {
+    border-radius: 18px;
+}
